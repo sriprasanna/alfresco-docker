@@ -6,4 +6,4 @@ ADD install_opts /tmp/install_opts
 RUN ["yum", "install", "-y", "hostname", "libreoffice"]
 RUN ["/tmp/alfresco.bin", "--optionfile", "/tmp/install_opts"]
 EXPOSE 8080
-ENTRYPOINT ["service", "alfresco", "start"]
+ENTRYPOINT ["tail", "-f", "/opt/alfresco/tomcat/logs/*"]
