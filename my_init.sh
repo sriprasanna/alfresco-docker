@@ -1,3 +1,3 @@
 #!/bin/sh
-/usr/sbin/service start alfresco
+/usr/sbin/service alfresco start
 /usr/bin/tail -f /opt/alfresco/tomcat/logs/*
