@@ -6,6 +6,7 @@ ADD install_opts /tmp/install_opts
 RUN ["yum", "install", "-y", "hostname", "libreoffice"]
 ADD install.sh /tmp/install.sh
 RUN ["chmod", "a+x", "/tmp/install.sh"]
+RUN ["/tmp/install.sh"]
 ADD my_init.sh /sbin/my_init.sh
 RUN ["chmod", "a+x", "/sbin/my_init.sh"]
 EXPOSE 8080
