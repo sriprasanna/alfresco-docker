@@ -4,6 +4,9 @@ ADD http://dl.alfresco.com/release/community/5.0.c-build-00145/alfresco-communit
 RUN ["chmod", "a+x", "/tmp/alfresco.bin"]
 ADD install_opts /tmp/install_opts
 RUN ["yum", "install", "-y", "hostname", "libreoffice"]
-RUN ["/tmp/alfresco.bin", "--optionfile", "/tmp/install_opts"]
+ADD install.sh /tmp/install.sh
+RUN ["chmod", "a+x", "/tmp/install.sh"]
+ADD my_init.sh /sbin/my_init.sh
+RUN ["chmod", "a+x", "/sbin/my_init.sh"]
 EXPOSE 8080
-ENTRYPOINT ["tail", "-f", "/opt/alfresco/tomcat/logs/*"]
+ENTRYPOINT ["/sbin/my_init.sh"]
